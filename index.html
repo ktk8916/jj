@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>티~원 줴줴이야</title>
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="titlebar">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span id="title">티~원줴줴이야 — 플레이그라운드</span>
+  </header>
+
+  <div class="main">
+    <nav class="activity" aria-label="보기 전환">
+      <button data-view="ref" title="문법" aria-label="문법">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13v2H6"/><path d="M9 8h6M9 11h4"/></svg>
+      </button>
+      <button data-view="examples" title="예제" aria-label="예제">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9.5 12.5L11 14l3.5-3.5"/></svg>
+      </button>
+      <button data-view="explorer" title="탐색기" aria-label="탐색기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 3v0"/></svg>
+      </button>
+      <button id="actSettings" class="bottom" title="설정" aria-label="설정">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      </button>
+      <button id="actHelp" title="도움말" aria-label="도움말">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5v.2"/><path d="M12 17v.01"/></svg>
+      </button>
+    </nav>
+
+    <div class="panes" id="panes">
+      <aside class="pane" data-view="ref" aria-label="문법">
+        <div class="sb-head">문법
+          <div class="actions">
+            <button class="icon-btn close-view" title="닫기 (Ctrl+B)" aria-label="문법 닫기">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="ref">
+          <h3>시작하기</h3>
+          <p>프로그램은 <code>티~원</code>으로 열고 <code>줴줴이야</code>로 닫아요. 한 줄에 한 문장씩 쓰고, 숫자와 기호는 쓸 수 없어요.</p>
+<pre>티~원
+예? 마렵네..
+지~랄 예?
+줴줴이야</pre>
+          <p class="out-note">출력: 2</p>
+
+          <h3>변수</h3>
+          <p><code>예?</code>는 1번, <code>예??</code>는 2번 변수예요. 물음표 개수가 번호이고, 모두 0에서 시작해요.</p>
+
+          <h3>값 바꾸기</h3>
+          <p><code>마렵네</code>는 1 더하기, <code>어흐어흐</code>는 1 빼기예요. 점을 붙이면 그 개수만큼 한 번에 바뀌어요. 점은 세 개까지예요.</p>
+<pre>예? 마렵네...
+예? 어흐어흐</pre>
+          <p class="out-note">예?는 3이 됐다가 2가 돼요.</p>
+
+          <h3>출력</h3>
+          <p><code>지~랄 예?</code>는 예?의 값을 한 줄에 출력해요. 출력할 수 있는 건 변수뿐이에요.</p>
+
+          <h3>블록</h3>
+          <p>조건문, 반복문, 함수는 다음 줄부터 <code>티~원</code> … <code>줴줴이야</code>로 감싸요. 둘 다 혼자 한 줄을 차지해야 해요.</p>
+
+          <h3>조건문</h3>
+          <p>변수가 0이 아니면 참이에요.</p>
+<pre>엄 예?
+티~원
+지~랄 예?
+줴줴이야
+아뇨아뇨아뇨 엄 예??
+티~원
+지~랄 예??
+줴줴이야
+아뇨아뇨아뇨
+티~원
+지~랄 예???
+줴줴이야</pre>
+          <p class="out-note">엄은 if, 아뇨아뇨아뇨 엄은 else if, 아뇨아뇨아뇨는 else예요.</p>
+
+          <h3>반복문</h3>
+          <p><code>앙기모링 예?</code>는 예?가 0이 될 때까지 반복해요.</p>
+<pre>예? 마렵네...
+앙기모링 예?
+티~원
+지~랄 예?
+예? 어흐어흐
+줴줴이야</pre>
+          <p class="out-note">출력: 3, 2, 1</p>
+
+          <h3>함수</h3>
+          <p><code>랄로톤으로</code> 뒤에 한글 이름과 받을 변수를 적어요. <code>요이~</code>로 값을 돌려줘요.</p>
+<pre>랄로톤으로 더하기 예? 예??
+티~원
+앙기모링 예??
+티~원
+예? 마렵네
+예?? 어흐어흐
+줴줴이야
+예? 요이~
+줴줴이야</pre>
+<pre>예??? 더하기 예? 예??</pre>
+          <p class="out-note">결과가 예???에 들어가요. 결과가 필요 없으면 앞의 변수를 빼고 부르면 돼요.</p>
+          <p>함수 안의 변수는 바깥과 따로 놀아요. 인자는 값만 복사돼서 들어가고, <code>요이~</code> 없이 끝나면 0을 돌려줘요. 함수는 프로그램 맨 바깥에 만들고, 자기 자신을 부를 수도 있어요.</p>
+
+          <h3>다른 파일 쓰기</h3>
+          <p>함수를 <code>넌나가라</code>로 내보내면 다른 파일에서 <code>파일명.함수</code>로 부를 수 있어요.</p>
+<pre>넌나가라 곱</pre>
+<pre>예??? 수학.곱 예? 예??</pre>
+          <p class="out-note">파일 이름은 한글만 되고, 폴더가 달라도 겹칠 수 없어요.</p>
+
+          <h3>주석</h3>
+          <p><code>#</code> 뒤는 줄 끝까지 무시돼요.</p>
+        </div>
+      </aside>
+
+      <aside class="pane" data-view="examples" aria-label="예제">
+        <div class="sb-head">예제 <span class="sb-note">읽기 전용</span>
+          <div class="actions">
+            <button class="icon-btn close-view" title="닫기 (Ctrl+B)" aria-label="예제 닫기">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+            </button>
+          </div>
+        </div>
+        <ul class="files" id="filesEx"></ul>
+      </aside>
+
+      <aside class="pane" data-view="explorer" aria-label="탐색기" hidden>
+        <div class="sb-head">탐색기
+          <div class="actions">
+            <button class="icon-btn" id="newFile" title="새 파일" aria-label="새 파일">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 1.5H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5.5z"/><path d="M9 1.5v4h4M8 8v4M6 10h4"/></svg>
+            </button>
+            <button class="icon-btn close-view" title="닫기 (Ctrl+B)" aria-label="탐색기 닫기">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+            </button>
+          </div>
+        </div>
+        <ul class="files" id="filesMine"></ul>
+      </aside>
+    </div>
+
+    <section class="workbench">
+      <div class="tabs">
+        <div class="tablist" id="tablist" role="tablist"></div>
+        <div class="tab-actions">
+          <button class="icon-btn" id="togglePanel" title="터미널 열기/닫기 (Ctrl+J)" aria-label="터미널 열기/닫기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.5" y="2.5" width="13" height="11" rx="1"/><path d="M10 2.5v11"/></svg></button>
+          <button class="sec-btn" id="readBtn" title="코드를 소리 내어 읽기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 6h2.5l3.5-3v10l-3.5-3H2.5z" fill="currentColor"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.8a6 6 0 0 1 0 8.4"/></svg><span>읽기</span></button>
+          <button class="sec-btn" id="runReadBtn" title="한 줄씩 읽으면서 실행"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 6h2.5l3.5-3v10l-3.5-3H2.5z" fill="currentColor"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.8a6 6 0 0 1 0 8.4"/></svg><span>읽으면서 실행</span></button>
+          <button class="run-btn" id="runBtn" title="실행 (Ctrl+Enter / F5)">
+            <svg viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.5l8 4.5-8 4.5z"/></svg>실행
+          </button>
+        </div>
+      </div>
+      <div class="ro-bar" id="roBar" hidden>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3.5" y="7" width="9" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+        <span>예제 파일은 수정할 수 없어요. 내 파일로 복사하여 수정해보세요.</span>
+        <button class="sec-btn" id="copyEx">내 파일로 복사</button>
+      </div>
+      <div class="crumbs-row">
+        <div class="crumbs" id="crumbs"></div>
+        <button class="sec-btn crumb-btn" id="shareBtn" title="이 파일을 링크로 공유해요 (링크가 복사돼요)" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6.5 9.5l3-3"/><path d="M7 4.5l1.5-1.5a2.5 2.5 0 0 1 3.5 3.5L10.5 8"/><path d="M9 11.5l-1.5 1.5a2.5 2.5 0 0 1-3.5-3.5L5.5 8"/></svg><span>공유하기</span></button>
+      </div>
+      <div class="split">
+      <div class="editor" id="editor">
+        <div class="gutter" id="gutter"></div>
+        <div class="code" id="codeWrap">
+          <div class="hl-line cur" id="curLine"></div>
+          <div class="hl-line err" id="errLine" hidden></div>
+          <div class="hl-line read" id="readLine" hidden></div>
+          <pre id="hl" aria-hidden="true"></pre>
+          <textarea id="src" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="코드 편집기"></textarea>
+        </div>
+        <div class="empty-msg" id="emptyMsg" hidden>열린 파일이 없습니다.<br>탐색기에서 파일을 고르거나 새 파일을 만드세요.</div>
+      </div>
+      <div class="panel" id="panel">
+        <div class="panel-tabs" role="tablist">
+          <button data-p="out" class="on">출력</button>
+          <button data-p="mem">변수</button>
+          <span class="spacer"></span>
+          <button class="icon-btn" id="clearOut" title="출력 지우기" aria-label="출력 지우기">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="5.5"/><path d="M4.2 11.8l7.6-7.6"/></svg>
+          </button>
+          <button class="icon-btn" id="closePanel" title="터미널 닫기" aria-label="터미널 닫기">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+          </button>
+        </div>
+        <div class="panel-body">
+          <div data-pane="out"><pre class="out" id="out"><span class="muted">Ctrl+Enter 또는 F5로 실행하세요.</span></pre></div>
+          <div data-pane="mem" hidden><div id="mem"><span class="muted">실행이 끝난 뒤 본문 변수 값이 여기에 표시됩니다.</span></div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="statusbar" id="statusbar">
+    <span id="stState">⊘ 0 ⚠ 0</span>
+    <span id="stRun" class="hide-sm"></span>
+    <span class="grow"></span>
+    <span id="stPos">줄 1, 열 1</span>
+    <span class="hide-sm">공백: 2</span>
+    <span class="hide-sm">UTF-8</span>
+    <span>티~원줴줴이야</span>
+  </footer>
+</div>
+
+<dialog id="dlg" class="dlg">
+  <form method="dialog">
+    <h2 id="dlgTitle"></h2>
+    <p id="dlgMsg"></p>
+    <input id="dlgInput" type="text" autocomplete="off" spellcheck="false" aria-label="입력">
+    <div class="dlg-actions">
+      <button type="button" class="sec-btn" id="dlgCancel">취소</button>
+      <button type="submit" value="ok" class="run-btn" id="dlgOk">확인</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="settings" class="dlg settings">
+  <form method="dialog">
+    <h2>설정</h2>
+    <h3>음성 읽기</h3>
+    <div class="speech">
+      <p class="muted" id="spNoTts" hidden>이 브라우저는 음성 읽기를 지원하지 않아요.</p>
+      <label><span>목소리</span><select id="spVoice"></select><span></span></label>
+      <label><span>속도</span><input type="range" id="spRate" min="0.5" max="3" step="0.1"><span class="val" id="spRateVal"></span></label>
+      <label><span>높낮이</span><input type="range" id="spPitch" min="0" max="2" step="0.1"><span class="val" id="spPitchVal"></span></label>
+      <label><span>크기</span><input type="range" id="spVolume" min="0" max="1" step="0.1"><span class="val" id="spVolumeVal"></span></label>
+      <div class="speech-actions">
+        <button type="button" class="sec-btn" id="spTest">들어보기</button>
+        <button type="button" class="sec-btn" id="spReset">기본값으로</button>
+      </div>
+    </div>
+    <div class="dlg-actions">
+      <button type="submit" value="ok" class="run-btn">닫기</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="onboard" class="dlg onboard">
+  <div class="ob-step" data-step="0">
+    <h2>안녕하세요, 티~원줴줴이야예요</h2>
+    <p>한글 말투만으로 프로그램을 짜는 아주 작은 언어예요. 숫자도 기호도 없어요. 값은 <code>마렵네</code>(하나 더하기)와 <code>어흐어흐</code>(하나 빼기)로 만들고, <code>지~랄</code>로 출력해요. 예를 들면 이래요.</p>
+<pre>티~원
+예? 마렵네...
+지~랄 예?
+줴줴이야</pre>
+    <p class="ob-note"><code>예?</code>는 1번 변수, 점 세 개는 세 번 더하기. 그래서 <b>3</b>이 출력돼요.</p>
+    <p>이상하게 생겼지만 금방 익숙해져요. 처음 쓰는 분을 위해 세 가지만 짚고 갈게요.</p>
+  </div>
+  <div class="ob-step" data-step="1" hidden>
+    <h2>먼저 예제를 하나 돌려 볼까요?</h2>
+    <p>왼쪽 <b>예제</b> 패널에 기초·중급·상급 예제가 있어요. 아무거나 열어서 위의 <b>▶ 실행</b>을 누르면 오른쪽에 결과가 나와요. <b>읽기</b>는 코드를 소리 내어 읽어 주고, <b>읽으면서 실행</b>은 한 줄씩 짚어 가며 실행해요.</p>
+    <p>예제는 원본이 그대로 지켜지니 마음껏 실행해 보세요. 직접 고쳐 보고 싶으면 편집기 위에 있는 <b>내 파일로 복사</b>를 누르면 돼요.</p>
+    <div class="ob-actions"><button type="button" class="sec-btn" data-action="open-hello">시작하기 예제 열고 실행해 보기</button></div>
+  </div>
+  <div class="ob-step" data-step="2" hidden>
+    <h2>막히면 문법을 펴 두세요</h2>
+    <p>맨 왼쪽 아이콘이 위에서부터 <b>문법</b>, <b>예제</b>, <b>탐색기</b> 패널이에요. 누르면 펴지고 다시 누르면 접혀요. 여러 개를 나란히 열어 둬도 되고, 필요한 것만 남겨도 돼요. 문법 패널은 <kbd>Ctrl</kbd>+<kbd>B</kbd>로도 열고 닫을 수 있어요.</p>
+    <p>예약어가 워낙 독특해서 처음엔 자꾸 헷갈려요. 문법 패널을 옆에 두고 보면서 짜는 걸 추천해요.</p>
+  </div>
+  <div class="ob-step" data-step="3" hidden>
+    <h2>이제 직접 만들어 볼 차례예요</h2>
+    <p><b>탐색기</b> 패널에서 <b>새 파일</b>을 누르면 내 파일이 생겨요. 이름은 한글만 쓸 수 있고, <code>폴더/이름</code>처럼 쓰면 폴더에 들어가요. 파일은 이 브라우저에 저장돼서 다음에 와도 그대로 있어요.</p>
+    <p>다 만든 코드는 파일 이름 옆의 <b>공유하기</b>로 친구에게 보낼 수 있어요. 링크가 복사되는데, 그 링크 하나에 코드가 통째로 들어 있어서 서버 같은 건 필요 없어요.</p>
+    <p class="ob-note">이 안내는 왼쪽 아래 <b>?</b> 버튼으로 언제든 다시 볼 수 있어요.</p>
+    <div class="ob-actions"><button type="button" class="sec-btn" data-action="new-file">새 파일 만들기</button></div>
+  </div>
+  <div class="ob-nav">
+    <div class="ob-dots" id="obDots" aria-hidden="true"></div>
+    <button type="button" class="link-btn" id="obSkip">건너뛰기</button>
+    <button type="button" class="sec-btn" id="obPrev">이전</button>
+    <button type="button" class="run-btn" id="obNext">다음</button>
+  </div>
+</dialog>
+
+<script src="lang/interpreter.js"></script>
+<script src="src/examples.js"></script>
+<script src="src/dom.js"></script>
+<script src="src/store.js"></script>
+<script src="src/editor.js"></script>
+<script src="src/layout.js"></script>
+<script src="src/runner.js"></script>
+<script src="src/speech.js"></script>
+<script src="src/explorer.js"></script>
+<script src="src/share.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>

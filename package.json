@@ -1,0 +1,11 @@
+{
+  "name": "t1jjya-playground",
+  "version": "1.0.0",
+  "private": true,
+  "description": "티~원줴줴이야 인터프리터와 브라우저 플레이그라운드",
+  "scripts": {
+    "build": "node scripts/build-examples.js",
+    "test": "node scripts/build-examples.js && node lang/test/run-examples.js",
+    "test:update": "node lang/test/run-examples.js --update"
+  }
+}
