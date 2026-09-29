@@ -39,7 +39,7 @@
     showPane('out');
     setPanel(true);
     refresh();
-    if (r.blocked) notify('출력할 수 없는 숫자입니다', '1557, 1601, 88848, 8884844는 출력할 수 없어요.');
+    if (r.blocked) notify('출력할 수 없는 숫자입니다');
   }
   function runCode() {
     JJ.stopPlay();
