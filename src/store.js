@@ -38,16 +38,16 @@
     const panes = (s.panes && typeof s.panes === 'object') ? s.panes : {};
     s.panes = Object.fromEntries(PANES.map(p => [p, typeof panes[p] === 'boolean' ? panes[p] : DEFAULT_PANES[p]]));
     s.speech = normalizeSpeech(s.speech);
-    s.onboarded = s.onboarded === true;
+    delete s.onboarded;  // 예전 온보딩 흔적
     return s;
   }
   // 처음 온 사람: 내 파일도, 열린 탭도 없이 문법·예제 패널만 펼쳐 둔다
   function fresh() {
-    return { files: [], open: [], active: null, closed: {}, panes: { ...DEFAULT_PANES }, speech: { ...SPEECH_DEFAULTS }, onboarded: false };
+    return { files: [], open: [], active: null, closed: {}, panes: { ...DEFAULT_PANES }, speech: { ...SPEECH_DEFAULTS } };
   }
   // v8 → v9: 예제는 더 이상 저장하지 않으므로 사용자 파일만 남긴다
   function migrateLegacy(old) {
-    return { ...fresh(), files: old.files, open: old.open, active: old.active, speech: old.speech, onboarded: true };
+    return { ...fresh(), files: old.files, open: old.open, active: old.active, speech: old.speech };
   }
   function load() {
     try {
