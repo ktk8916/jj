@@ -29,6 +29,10 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:1px soli
 .activity svg{width:24px;height:24px}
 .activity .bottom{margin-top:auto}
 
+/* toast (짧은 안내) */
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);z-index:50;padding:8px 14px;border-radius:4px;background:#3a3d41;color:#e7e7e7;font:12.5px var(--ui);box-shadow:0 4px 16px rgba(0,0,0,.5);display:flex;align-items:center;gap:8px;pointer-events:none}
+.toast svg{width:14px;height:14px;color:#4ec9b0}
+
 /* dialogs */
 .dlg{background:#252526;color:var(--fg);border:1px solid #454545;border-radius:6px;padding:16px 18px;width:min(420px,calc(100vw - 32px));font:13px/1.5 var(--ui);box-shadow:0 8px 30px rgba(0,0,0,.6)}
 .dlg::backdrop{background:rgba(0,0,0,.45)}
@@ -51,7 +55,7 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:1px soli
 .icon-btn:hover{background:rgba(90,93,94,.31)}
 .icon-btn svg{width:16px;height:16px}
 .files{list-style:none;margin:0;padding:0;flex:1;overflow:auto}
-.files li.hint{color:var(--fg-dim);cursor:default;font-size:12px}
+.files li.hint{height:auto;white-space:normal;line-height:1.5;padding:8px 12px 8px 20px;color:var(--fg-dim);cursor:default;font-size:12px}
 .files li.hint:hover{background:none}
 .files li .lock{color:var(--fg-dim);width:16px;display:grid;place-items:center}
 .files li .lock svg{width:12px;height:12px}
