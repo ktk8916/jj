@@ -31,5 +31,15 @@
 
   byId('dlgCancel').addEventListener('click', () => byId('dlg').close(''));
 
-  Object.assign(JJ, { byId, esc, isMobile, openDialog, askText, askConfirm, notify });
+  // 화면 아래에 잠깐 떴다 사라지는 안내
+  let toastTimer = null;
+  function toast(message, ms = 2500) {
+    const el = byId('toast');
+    el.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8.5l3 3 7-7"/></svg>' + esc(message);
+    el.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { el.hidden = true; }, ms);
+  }
+
+  Object.assign(JJ, { byId, esc, isMobile, openDialog, askText, askConfirm, notify, toast });
 })();

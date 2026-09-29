@@ -3,7 +3,7 @@
    내용: { v: 1, main: '이름.jj', files: [{ name: '이름.jj', content }, …] }  (main이 먼저, 그 다음 참조하는 내 파일들) */
 (() => {
   const JJ = window.JJ ??= {};
-  const { byId, esc, openDialog, notify, state, save, modName, isExample, activeFile, findModule,
+  const { byId, esc, openDialog, notify, toast, state, save, modName, isExample, activeFile, findModule,
           codeOf, showPane, setPanel, renderAll, openFile } = JJ;
 
   /* ---------- 인코딩 ---------- */
@@ -50,13 +50,16 @@
     const main = modName(f.name) + '.jj';
     const deps = [...referencedUserFiles(f.content, new Map()).values()].filter(d => d.name !== f.name);
     const files = [{ name: main, content: f.content }, ...deps.map(d => ({ name: modName(d.name) + '.jj', content: d.content }))];
-    const hash = '#' + await encodeShare({ v: 1, main, files });
-    const url = location.href.split('#')[0] + hash;
-    try { history.replaceState(null, '', hash); } catch (_) {}
+    // 주소창은 바꾸지 않는다. 링크는 클립보드로만 나간다
+    const url = location.href.split('#')[0] + '#' + await encodeShare({ v: 1, main, files });
     let copied = false;
     try { await navigator.clipboard.writeText(url); copied = true; } catch (_) {}
-    byId('stRun').textContent = copied ? `공유 링크를 복사했습니다 (${url.length.toLocaleString()}자${deps.length ? `, 파일 ${files.length}개` : ''})` : '';
-    if (!copied) await openDialog({ title: '공유하기', message: '클립보드에 넣지 못했어요. 아래 링크를 직접 복사하세요.', input: url, cancel: false, okText: '닫기' });
+    if (copied) {
+      toast(deps.length ? `공유 링크를 클립보드에 복사했어요 (파일 ${files.length}개 포함)` : '공유 링크를 클립보드에 복사했어요');
+      byId('stRun').textContent = `공유 링크 ${url.length.toLocaleString()}자`;
+    } else {
+      await openDialog({ title: '공유하기', message: '클립보드에 넣지 못했어요. 아래 링크를 직접 복사하세요.', input: url, cancel: false, okText: '닫기' });
+    }
   }
 
   /* ---------- 링크에서 복구 ---------- */

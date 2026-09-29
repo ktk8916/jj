@@ -7,7 +7,7 @@
   const LEGACY_KEY = 't1jjya:v8';  // 예제가 사용자 파일과 섞여 저장되던 이전 형식
   const EXAMPLE_NAMES = new Set(EXAMPLES.map(e => e.name));
   const PANES = ['ref', 'examples', 'explorer'];  // 왼쪽 패널: 문법 / 예제 / 탐색기
-  const DEFAULT_PANES = { ref: true, examples: true, explorer: false };
+  const DEFAULT_PANES = { ref: true, examples: true, explorer: true };
   // 음성 읽기 기본값. voice는 voiceURI이며 ''는 "한국어 목소리 자동 선택"
   const SPEECH_DEFAULTS = { voice: '', rate: 1.5, pitch: 1, volume: 1 };
   const SPEECH_RANGE = { rate: [0.5, 3], pitch: [0, 2], volume: [0, 1] };
@@ -41,7 +41,7 @@
     delete s.onboarded;  // 예전 온보딩 흔적
     return s;
   }
-  // 처음 온 사람: 내 파일도, 열린 탭도 없이 문법·예제 패널만 펼쳐 둔다
+  // 처음 온 사람: 내 파일도, 열린 탭도 없이 세 패널을 모두 펼쳐 둔다
   function fresh() {
     return { files: [], open: [], active: null, closed: {}, panes: { ...DEFAULT_PANES }, speech: { ...SPEECH_DEFAULTS } };
   }
