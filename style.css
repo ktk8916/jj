@@ -38,24 +38,6 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:1px soli
 .dlg input:focus{outline:none;border-color:var(--focus)}
 .dlg-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
 .dlg-actions .sec-btn,.dlg-actions .run-btn{padding:5px 14px}
-.onboard{width:min(500px,calc(100vw - 32px));font-size:13.5px;line-height:1.65}
-.onboard h2{font-size:16px;margin-bottom:12px}
-.onboard p{color:#d0d0d0;margin:0 0 12px}
-.onboard b{color:var(--fg-bright);font-weight:600}
-.onboard code{font-family:var(--mono);background:#2f2f30;padding:1px 5px;border-radius:3px;color:#e7e7e7}
-.onboard kbd{font:11px var(--ui);background:#3c3c3c;border:1px solid #555;border-bottom-width:2px;border-radius:3px;padding:0 5px}
-.onboard pre{margin:0 0 8px;padding:10px 12px;background:#1e1e1e;border-radius:4px;font:13px/1.55 var(--mono);color:#d4d4d4}
-.onboard .ob-note{color:#9a9a9a;font-size:12.5px}
-.ob-actions{margin:4px 0 8px}
-.ob-actions .sec-btn{padding:5px 12px;background:#0e639c;color:#fff}
-.ob-actions .sec-btn:hover{background:#1177bb}
-.ob-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
-.ob-nav .sec-btn,.ob-nav .run-btn{padding:5px 14px}
-.ob-dots{display:flex;gap:6px;margin-right:auto}
-.ob-dots i{width:7px;height:7px;border-radius:50%;background:#4a4a4a;display:block}
-.ob-dots i.on{background:var(--fg-bright)}
-.link-btn{color:#9cdcfe;padding:5px 8px;border-radius:3px;font-size:12px}
-.link-btn:hover{background:rgba(90,93,94,.31)}
 
 /* panes: 문법 / 예제 / 탐색기. 각각 따로 열고 닫으며 나란히 놓인다 */
 .panes{display:flex;flex-shrink:0;min-width:0}
